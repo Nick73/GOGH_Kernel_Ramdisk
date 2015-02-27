@@ -7,7 +7,7 @@ The boot.img has been extracted and set up using the following commands:
         mkdir initrd && cd initrd && zcat ../initrd.img | cpio -i
         find . | cpio -o -H newc | gzip > ../initrd.img
         
-To compile your own kernel, just build the zImage and replace the zImage in this repo with your own and do the following command:
+To compile your own kernel, just build the zImage and replace the zImage in this repo with your own and do the following command from within the *initrd* folder:
 
         cd ../ && abootimg --create boot.img -k zImage -r initrd.img && abootimg --create boot.img -f bootimg.cfg -k zImage -r initrd.img
         
